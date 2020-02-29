@@ -1,4 +1,4 @@
-# Asibuy
+# Asibuy CRM
 
 A CRM system built as a study project.
 
