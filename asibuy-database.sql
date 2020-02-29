@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: sql202.epizy.com
--- Generation Time: פברואר 20, 2020 בזמן 07:51 AM
--- גרסת שרת: 5.6.45-86.1
--- PHP Version: 7.2.22
+-- Host: 127.0.0.1
+-- Generation Time: Feb 29, 2020 at 10:45 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- מבנה טבלה עבור טבלה `customers`
+-- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
@@ -40,7 +40,7 @@ CREATE TABLE `customers` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- הוצאת מידע עבור טבלה `customers`
+-- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`id`, `first_name`, `last_name`, `id_number`, `email`, `phone`, `created_at`, `updated_at`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `customers` (`id`, `first_name`, `last_name`, `id_number`, `email`, 
 -- --------------------------------------------------------
 
 --
--- מבנה טבלה עבור טבלה `handles`
+-- Table structure for table `handles`
 --
 
 CREATE TABLE `handles` (
@@ -78,7 +78,7 @@ CREATE TABLE `handles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- הוצאת מידע עבור טבלה `handles`
+-- Dumping data for table `handles`
 --
 
 INSERT INTO `handles` (`id`, `headline`, `handle`, `ticket_id`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -91,7 +91,7 @@ INSERT INTO `handles` (`id`, `headline`, `handle`, `ticket_id`, `user_id`, `crea
 -- --------------------------------------------------------
 
 --
--- מבנה טבלה עבור טבלה `tickets`
+-- Table structure for table `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -100,13 +100,13 @@ CREATE TABLE `tickets` (
   `ticket` text NOT NULL,
   `customer_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '1',
+  `status` int(1) NOT NULL DEFAULT 1,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- הוצאת מידע עבור טבלה `tickets`
+-- Dumping data for table `tickets`
 --
 
 INSERT INTO `tickets` (`id`, `subject`, `ticket`, `customer_id`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
@@ -123,7 +123,7 @@ INSERT INTO `tickets` (`id`, `subject`, `ticket`, `customer_id`, `user_id`, `sta
 -- --------------------------------------------------------
 
 --
--- מבנה טבלה עבור טבלה `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -133,17 +133,16 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `role` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT 1,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- הוצאת מידע עבור טבלה `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role`, `status`, `created_at`, `updated_at`) VALUES
-(7, 'asi', 'kapner', 'asik@hvr.co.il', '$2y$10$QEUEoWWa7jdrGA37e9qk6.AdtZQP90qf5FHO7sSML7FASryEoBNxq', 2, 1, '2019-12-17 07:49:21', '2019-12-17 09:01:34'),
 (2, 'asi', 'kapner', 'webmas1@gmail.com', '$2y$10$0FP.p1xsnEC4b6wdAqcctuTXsL0Rg3nB/RHsHPtS1Ls29wNWzyRwi', 1, 1, '2019-12-05 04:44:23', '2019-12-17 09:10:54'),
 (6, 'pol', 'bogopolsky', 'pol292@gmail.com', '$2y$10$0FP.p1xsnEC4b6wdAqcctuTXsL0Rg3nB/RHsHPtS1Ls29wNWzyRwi', 2, 1, '2019-12-16 05:06:51', '2019-12-17 09:00:45');
 
@@ -152,7 +151,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role
 --
 
 --
--- אינדקסים לטבלה `customers`
+-- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
@@ -160,19 +159,19 @@ ALTER TABLE `customers`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- אינדקסים לטבלה `handles`
+-- Indexes for table `handles`
 --
 ALTER TABLE `handles`
   ADD PRIMARY KEY (`id`);
 
 --
--- אינדקסים לטבלה `tickets`
+-- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`id`);
 
 --
--- אינדקסים לטבלה `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
