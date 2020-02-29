@@ -26,3 +26,6 @@ Email: pol292@gmail.com
 
 Password: a1b2c3d4
 
+## Please Note
+
+SQL file included with DB for testing
