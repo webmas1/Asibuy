@@ -1,6 +1,6 @@
 # Asibuy CRM
 
-A CRM system built as a study project.
+A CRM system built within the curriculum.
 
 ## Built With
 
