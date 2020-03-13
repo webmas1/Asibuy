@@ -17,11 +17,15 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $created_at = $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now');
     return [
-        'name' => $faker->name,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'password' => '$2y$10$0FP.p1xsnEC4b6wdAqcctuTXsL0Rg3nB/RHsHPtS1Ls29wNWzyRwi',
+        'role' => 2,
+        'status' => 1,
+        'created_at' => $created_at,
+        'updated_at' => $faker->dateTimeBetween($startDate = $created_at, $endDate = 'now')
     ];
 });

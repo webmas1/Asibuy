@@ -96,7 +96,7 @@
         <div class="card invisible-line">
 
             <!-- header -->
-            <div class="card-header d-flex justify-content-between align-items-center" id="ticketHandlingHeading{{ $handle->id }}" data-toggle="collapse" data-target="#ticketHandling{{ $handle->id }}"
+            <div style="cursor: pointer" class="card-header d-flex justify-content-between align-items-center" id="ticketHandlingHeading{{ $handle->id }}" data-toggle="collapse" data-target="#ticketHandling{{ $handle->id }}"
                         aria-expanded="true" aria-controls="ticketHandling{{ $handle->id }}">
 
                 <!-- headline -->
