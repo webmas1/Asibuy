@@ -28,4 +28,4 @@ Password: a1b2c3d4
 
 ## Please Note
 
-SQL file included with DB for testing
+Please migrate and seed DB for testing
